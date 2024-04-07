@@ -1,0 +1,9 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Steganograpg_txt_to_img" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+         <item name="colorPrimary">@color/bright_main200</item>
+    </style>
+
+    <style name="Theme.Steganograpg_txt_to_img" parent="Base.Theme.Steganograpg_txt_to_img" />
+</resources>

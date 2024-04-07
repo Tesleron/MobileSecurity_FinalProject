@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "300359825663",
+    "firebase_url": "https://steganography-text-image-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "steganography-text-image",
+    "storage_bucket": "steganography-text-image.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:300359825663:android:cd00a2a3b6e1fdc1a8b4ca",
+        "android_client_info": {
+          "package_name": "com.example.steganograpg_txt_to_img"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "300359825663-9drlf6g2q87pc9mkqtfukcf1tudvgkcg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.steganograpg_txt_to_img",
+            "certificate_hash": "39dbf93325d760a3929229c5179c76196d17ffaa"
+          }
+        },
+        {
+          "client_id": "300359825663-cjdpf7femu49us2pt9m2mvjaoi63284o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgz1WJ_j2A8IIm66_XtYHwnAEY0C4kBnQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "300359825663-cjdpf7femu49us2pt9m2mvjaoi63284o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

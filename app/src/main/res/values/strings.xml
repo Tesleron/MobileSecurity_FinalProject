@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Steganograpg_txt_to_img</string>
+    <string name="search_a_user">Search a user</string>
+    <string name="type_a_message">Type a message</string>
+    <string name="type_a_key">Type a key</string>
+    <string name="encrypt">encrypt</string>
+    <string name="type_fake_message">Type fake message</string>
+    <string name="decrypt">decrypt</string>
+</resources>

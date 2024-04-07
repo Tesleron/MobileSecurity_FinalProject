@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.MainActivity"
+    android:layout_marginTop="30dp">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/main_RV_top">
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/main_TV_hello"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:textSize="30sp"
+            android:layout_marginTop="50dp"
+            android:textStyle="bold"
+            android:textColor="@color/dark_main"/>
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/main_logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_logout"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="6dp"
+            android:backgroundTint="#00000000"
+            android:layout_marginTop="7dp"/>
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/main_ET_search"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginEnd="60dp"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/main_TV_hello"
+            android:layout_centerHorizontal="true"
+            android:hint="@string/search_a_user"
+            android:drawableStart="@drawable/ic_search"
+            android:textColorHint="#A6FFFFFF"
+            android:textColor="#DAFFFFFF"
+            android:background="@drawable/background_textview_input"
+            android:textSize="16sp"
+            android:maxLines="1" />
+    </RelativeLayout>
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/main_RV_top"
+        android:background="@drawable/background_content"
+        android:layout_marginTop="20dp"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/main_LST_users"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/main_RV_top"
+        tools:listitem="@layout/user_item"
+        android:layout_marginTop="20dp"
+        android:paddingTop="30dp" />
+
+</RelativeLayout>
