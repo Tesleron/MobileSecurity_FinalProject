@@ -1,12 +1,12 @@
-# SecureChat - Encrypted Messaging Application
+# ChatEncrypt - Encrypted Messaging Application
 
 ## Description
 
-SecureChat is a robust Android application that takes your privacy and security seriously. The app offers a unique feature that allows users to hide encrypted messages inside fake messages, delivering an unprecedented level of security. Built with the most advanced encryption algorithms, SecureChat is designed to provide users with secure and private communication.
+ChatEncrypt is a robust Android application that takes your privacy and security seriously. The app offers a unique feature that allows users to hide encrypted messages inside fake messages, delivering an unprecedented level of security. Built with the most advanced encryption algorithms, ChatEncrypt is designed to provide users with secure and private communication.
 
 ## Features
 
-1. **Secure Messaging:** SecureChat uses top-tier encryption algorithms for sending and receiving messages, ensuring that your private conversations stay private.
+1. **Secure Messaging:** ChatEncrypt uses top-tier encryption algorithms for sending and receiving messages, ensuring that your private conversations stay private.
 
 2. **Hidden Encrypted Messages:** With our unique feature, you can hide your encrypted messages inside fake ones to deceive prying eyes.
 
