@@ -8,11 +8,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.steganograpg_txt_to_img.Models.User;
 import com.example.steganograpg_txt_to_img.Models.UsersChat;
 import com.example.steganograpg_txt_to_img.Utils.Constants;
 import com.example.steganograpg_txt_to_img.databinding.ActivityMainBinding;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
@@ -24,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private UsersAdapter usersAdapter;
     private MainViewModel mainViewModel;
 
+    private FirebaseAnalytics mFirebaseAnalytics;
     private Observer<ArrayList<User>> observer = new Observer<ArrayList<User>>() {
 
         @Override
@@ -40,7 +45,22 @@ public class MainActivity extends AppCompatActivity {
         setListeners();
         setCallbacks();
 
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+
+        Button crashButton = new Button(this);
+        crashButton.setText("Test Crash");
+        crashButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                throw new RuntimeException("Test Crash"); // Force a crash
+            }
+        });
+
+        addContentView(crashButton, new ViewGroup.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT));
+
     }
+
 
     private void setListeners() {
         binding.mainETSearch.addTextChangedListener(new TextWatcher() {
