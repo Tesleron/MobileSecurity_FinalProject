@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -30,6 +31,8 @@
             android:backgroundTint="#00000000"
             android:layout_marginTop="7dp"/>
 
+
+
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/main_ET_search"
             android:layout_width="match_parent"
@@ -48,7 +51,12 @@
             android:background="@drawable/background_textview_input"
             android:textSize="16sp"
             android:maxLines="1" />
+
+
+
+
     </RelativeLayout>
+
 
 
     <ImageView
@@ -68,5 +76,17 @@
         tools:listitem="@layout/user_item"
         android:layout_marginTop="20dp"
         android:paddingTop="30dp" />
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentTop="true"
+
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-9514922232221550/8643547160"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>

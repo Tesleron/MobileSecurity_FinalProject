@@ -8,19 +8,29 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
+import android.util.DisplayMetrics;
+import android.view.Display;
 
+import com.example.steganograpg_txt_to_img.R;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
+
+import com.google.android.gms.ads.MobileAds;
 import com.example.steganograpg_txt_to_img.Models.User;
 import com.example.steganograpg_txt_to_img.Models.UsersChat;
 import com.example.steganograpg_txt_to_img.Utils.Constants;
 import com.example.steganograpg_txt_to_img.databinding.ActivityMainBinding;
-import com.google.firebase.analytics.FirebaseAnalytics;
+
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.RequestConfiguration;
 import com.google.firebase.auth.FirebaseAuth;
 
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
     private UsersAdapter usersAdapter;
     private MainViewModel mainViewModel;
 
-    private FirebaseAnalytics mFirebaseAnalytics;
     private Observer<ArrayList<User>> observer = new Observer<ArrayList<User>>() {
 
         @Override
@@ -45,22 +54,17 @@ public class MainActivity extends AppCompatActivity {
         setListeners();
         setCallbacks();
 
-        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+        MobileAds.initialize(this);
 
-        Button crashButton = new Button(this);
-        crashButton.setText("Test Crash");
-        crashButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                throw new RuntimeException("Test Crash"); // Force a crash
-            }
-        });
+        AdView adView = (AdView)findViewById(R.id.adView); // Reference the AdView from the layout
 
-        addContentView(crashButton, new ViewGroup.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT));
+        List<String> testDeviceIds = Arrays.asList("14dee25b-7bf6-4480-a745-067cc2e3ef87");
+        RequestConfiguration configuration =
+                new RequestConfiguration.Builder().setTestDeviceIds(testDeviceIds).build();
+        MobileAds.setRequestConfiguration(configuration);
+       // loadBanner();
 
     }
-
 
     private void setListeners() {
         binding.mainETSearch.addTextChangedListener(new TextWatcher() {
@@ -137,4 +141,37 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
         binding = null;
     }
+
+    private AdSize getAdSize() {
+        // Determine the screen width (less decorations) to use for the ad width.
+        Display display = getWindowManager().getDefaultDisplay();
+        DisplayMetrics outMetrics = new DisplayMetrics();
+        display.getMetrics(outMetrics);
+
+        float density = outMetrics.density;
+
+        float adWidthPixels = 0;
+
+        // If the ad hasn't been laid out, default to the full screen width.
+        if (adWidthPixels == 0) {
+            adWidthPixels = outMetrics.widthPixels;
+        }
+
+        int adWidth = (int) (adWidthPixels / density);
+        return AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(this, adWidth);
+    }
+
+    private void loadBanner() {
+
+        // Create a new ad view.
+        AdView adView = new AdView(this);
+        adView.setAdSize(getAdSize());
+        adView.setAdUnitId("ca-app-pub-9514922232221550/8643547160");
+
+        // Start loading the ad in the background.
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView.loadAd(adRequest);
+    }
+
+
 }
